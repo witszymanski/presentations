@@ -1,0 +1,185 @@
+/*-- scss:rules --*/
+
+/**
+ * Dracula Dark theme for reveal.js.
+ * Based on https://draculatheme.com
+ */
+
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+$systemFontsSansSerif: -apple-system,
+					   BlinkMacSystemFont,
+					   avenir next,
+					   avenir,
+					   segoe ui,
+					   helvetica neue,
+					   helvetica,
+					   Cantarell,
+					   Ubuntu,
+					   roboto,
+					   noto,
+					   arial,
+					   sans-serif;
+$systemFontsMono: Menlo,
+				  Consolas,
+				  Monaco,
+				  Liberation Mono,
+				  Lucida Console,
+				  monospace;
+
+/**
+ * Dracula colors by Zeno Rocha
+ * https://draculatheme.com/contribute
+ */
+html * {
+	color-profile: sRGB;
+	rendering-intent: auto;
+}
+
+$background: #272822;
+$foreground: #F8F8F2;
+$selection: #44475A;
+$comment: #75715E;
+$red: #F92672;
+$orange: #FD971F;
+$yellow: #E6DB74;
+$green: #A6E22E;
+$purple: #AE81FF;
+$cyan: #8BE9FD;
+$pink: #FF79C6;
+$heading: #CCE0E6;
+
+
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainColor: $foreground;
+$headingColor: $orange;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: $background;
+$linkColor: $green;
+$linkColorHover: $cyan;
+$selectionBackgroundColor: $selection;
+$inlineCodeColor: $green;
+$listBulletColor: $cyan;
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+$mainFont: $systemFontsSansSerif;
+$codeFont: "Fira Code", $systemFontsMono;
+
+// Change text colors against light slide backgrounds
+@include light-bg-text-color($background);
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Define additional color effects based on Dracula spec
+// https://spec.draculatheme.com/
+:root {
+	--r-bold-color: #{$green};
+	--r-italic-color: #{$yellow};
+	--r-inline-code-color: #{$inlineCodeColor};
+	--r-list-bullet-color: #{$listBulletColor};
+}
+
+.reveal strong, .reveal b {
+	color: var(--r-bold-color);
+}
+
+.reveal em, .reveal i, .reveal blockquote {
+	color: var(--r-italic-color);
+}
+
+
+
+// Dracula colored list bullets and numbers
+
+
+
+
+
+h1 {
+
+}
+
+h2 {
+    font-weight: bold !important;
+}
+
+// Monokai title
+h1.title {
+  font-size: 2.2em;
+  line-height: 100px;
+  #margin-top: -250px;
+  width: 70%;
+  letter-spacing: 0.01em;
+}
+
+#title-slide {
+  text-align: left;
+  display: none;
+
+  .institute, .quarto-title-affiliation {
+    font-weight: bold !important;
+    font-size: 90%;
+  }
+
+  .author, .quarto-title-author-name {
+    color: #f5f7f7;
+  }
+
+  .quarto-title-authors {
+    display: flex;
+    justify-content: left;
+  
+    .quarto-title-author {
+      padding-left: 0em;
+      padding-right: 0em;
+      width: 100%;
+    }
+  }
+
+  p.author::before, div.quarto-title-author::before {
+    content: "";
+    display: block;
+    border: none;
+    background-color: $body-color;
+    color: #f5f7f7;
+    height: 3px;
+    margin-bottom: 1em;
+  }
+
+  p, a {
+    padding-top: 1em;
+    color: #f5f7f7;
+     font-size: 120%;
+     letter-spacing: 0.01em;
+  }
+}
+
+.reveal .slides section[data-state="title"] .footer {
+    display: none;
+}
+
+// headings
+$presentation-heading-font: "Palatino Linotype", "Book Antiqua", Palatino,
+  FreeSerif, serif !default;
+$presentation-heading-color: #383d3d !default;
+$code-block-border-color: lighten($body-color, 60%);	
+
+
+
+
