@@ -1,0 +1,78 @@
+Here are the steps:
+
+1. Create a clean repository in GitHub (without README etc.), say presentations
+2. Initialise the git repo and link to GitHub, in Linux that would be
+
+mkdir presentations
+cd presentations
+git init
+git remote add origin git@github.com:witszymanski/presentations.git
+
+3. Add reveal.js as "remote" and pull the repository
+
+git remote add upstream git@github.com:hakimel/reveal.js.git
+git pull upstream master
+
+4. Create an empty branch for your presentation and clean the working directory
+
+git checkout --orphan KM4
+git reset --hard
+
+5. Copy presentation to current folder and commit your changes
+
+cp path/to/KM4.html .
+git add .
+git commit -m 'Initial commit'
+
+6. Switch to master and merge your presentations there
+
+git checkout master
+git merge KM4 --allow-unrelated-histories -m 'initial merge'
+
+7. Push all branches to GitHub
+
+git push --all origin
+
+8. Set up GitHub Pages to branch master and enjoy your presentation at https://witszymanski.github.io/presentations/KM4_Hubi_presentation_default.html
+
+Now, whenever you want to add another presentation, you just need to repeat steps 4-7. Besides, whenever you want to update reveal.js, you can simply do git pull upstream master.
+
+As an example of this approach, see https://github.com/dougmvieira/presentations.
+
+
+#################################################
+
+1. Create a new repository on GitHub
+
+Let’s call it reveal_HelloWorld
+
+
+3. Clone reveal.js on your local machine:
+
+git clone git@github.com:hakimel/reveal.js.git KM4_4
+cd KM4_4/
+git remote rm origin
+git remote add origin git@github.com:witszymanski/KM4_4.git
+git push -f --set-upstream origin master 
+
+
+4. Move the content of reveal.js folder into the reveal_HelloWorld folder
+5. Modify the index.html file
+6. Create and switch to a new branch
+
+git checkout -b 'gh-pages'
+
+7. Push
+
+git push
+
+8. From the GitHub website repo settings:
+
+        9. Set the ‘gh-pages’ branch as default
+        10. Delete the ‘master’ branch
+
+11. You are done.
+
+The slides are published at yourusername.github.io/reveal_HelloWorld.
+
+
